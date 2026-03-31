@@ -1,0 +1,5 @@
+package br.com.diegossilva.app.security;
+
+public class FiltroAuthJWT {
+
+}

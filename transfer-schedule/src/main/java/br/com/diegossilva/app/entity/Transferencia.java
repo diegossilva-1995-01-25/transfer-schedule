@@ -33,5 +33,14 @@ public class Transferencia {
 	
 	@Column(nullable = false)
 	private double valorTransferencia;
+	
+	@Column(nullable = false)
+	private double taxa;
+	
+	@Column(nullable = false)
+	private int dataAgendamento;
+	
+	@Column(nullable = false)
+	private int dataTransferencia;
 
 }
