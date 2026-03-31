@@ -26,6 +26,7 @@ public class DetalheCliente implements UserDetailsService {
 		return org.springframework.security.core.userdetails.User.builder()
 			.username(c.getCpf())
 			.password(c.getSenha())
+			.authorities("ROLE_USER")  // Add this line
 			.build();
 	}
 	

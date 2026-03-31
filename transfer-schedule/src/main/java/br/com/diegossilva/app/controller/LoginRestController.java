@@ -12,13 +12,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.diegossilva.app.entity.Cliente;
 import br.com.diegossilva.app.service.ClienteService;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 @RestController
-@RequestMapping("/benefdoc/api/auth")
+@RequestMapping("/transf-sched/api/auth")
 public class LoginRestController {
 	
 	@Autowired
-	ClienteService service;
+	private ClienteService service;
 	
 	@PostMapping("/login")
 	public ResponseEntity<?> autenticar(@RequestBody Cliente cliente) {
@@ -30,6 +32,16 @@ public class LoginRestController {
 		HttpHeaders httpHeaders = HttpHeaders.copyOf(cabecalho);
 		
 		return ResponseEntity.ok().headers(httpHeaders).body(msgEToken[0]);
+
+	}
+	
+	@PostMapping("/logout")
+	public ResponseEntity<?> sair(HttpServletRequest request, HttpServletResponse response) {
+		
+		String mensagem = service.fazerLogout(request, response);
+		
+		
+		return ResponseEntity.ok().headers(HttpHeaders.EMPTY).body(mensagem);
 
 	}
 	
