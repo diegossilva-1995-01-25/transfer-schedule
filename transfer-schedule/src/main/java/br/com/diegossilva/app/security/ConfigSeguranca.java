@@ -38,11 +38,9 @@ public class ConfigSeguranca {
 
         http.csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests((authorize) ->
-                        //authorize.anyRequest().authenticated()
-                        authorize.requestMatchers(HttpMethod.POST, "/benefdoc/api/**").permitAll()
-                                .requestMatchers("/benefdoc/api/auth/**").permitAll()
+                        authorize.requestMatchers(HttpMethod.POST, "/transf-sched/api/**").permitAll()
+                                .requestMatchers("/transf-sched/api/auth/**").permitAll()
                                 .anyRequest().authenticated()
-
                 )
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
                 ;

@@ -22,14 +22,14 @@ public class Transferencia {
 	private int id;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "cliente_id", nullable = false)
+	@JoinColumn(name = "conta_origin_id", nullable = false)
 	@OnDelete(action = OnDeleteAction.CASCADE)
-	private Cliente origem;
+	private Conta origem;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "cliente_id", nullable = false)
+	@JoinColumn(name = "conta_destination_id", nullable = false)
 	@OnDelete(action = OnDeleteAction.CASCADE)
-	private Cliente destino;
+	private Conta destino;
 	
 	@Column(nullable = false)
 	private double valorTransferencia;
