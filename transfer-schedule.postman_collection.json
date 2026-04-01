@@ -1,0 +1,524 @@
+{
+  "info": {
+    "_postman_id": "add2a781-4883-4934-b719-1666ad41d17d",
+    "name": "transfer-schedule",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "4508988"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Registrar",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "/*\r\n{\r\n    \"cpf\": \"44477488866\",\r\n    \"nome\": \"Diego\",\r\n    \"senha\": \"1234\"\r\n}\r\n*/\r\n\r\n\r\n{\r\n    \"cpf\": \"19821987028\",\r\n    \"nome\": \"Tony\",\r\n    \"senha\": \"9876\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://192.168.18.3:8080/transf-sched/api/auth/registrar",
+              "protocol": "http",
+              "host": [
+                "192",
+                "168",
+                "18",
+                "3"
+              ],
+              "port": "8080",
+              "path": [
+                "transf-sched",
+                "api",
+                "auth",
+                "registrar"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "/*\r\n{\r\n    \"cpf\": \"44477488866\",\r\n    \"senha\": \"1234\"\r\n}\r\n*/\r\n\r\n\r\n{\r\n    \"cpf\": \"19821987028\",\r\n    \"senha\": \"9876\"\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://192.168.18.3:8080/transf-sched/api/auth/login",
+              "protocol": "http",
+              "host": [
+                "192",
+                "168",
+                "18",
+                "3"
+              ],
+              "port": "8080",
+              "path": [
+                "transf-sched",
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Logout",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://192.168.18.3:8080/transf-sched/api/auth/logout",
+              "protocol": "http",
+              "host": [
+                "192",
+                "168",
+                "18",
+                "3"
+              ],
+              "port": "8080",
+              "path": [
+                "transf-sched",
+                "api",
+                "auth",
+                "logout"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Conta",
+      "item": [
+        {
+          "name": "Cadastrar",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxOTgyMTk4NzAyOCIsImlhdCI6MTc3NTAxNDE2NiwiZXhwIjoxNzc1MDE3NzY2fQ.Yb28hm9Yx6ddMkus6TRiAc5Uzw9sFRGpGWkMFkHbDCU",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"cliente\": \r\n    {\r\n        \"cpf\": \"19821987028\"\r\n    },\r\n    \"saldo\": 100.00\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://192.168.18.3:8080/transf-sched/conta/cadastrar",
+              "protocol": "http",
+              "host": [
+                "192",
+                "168",
+                "18",
+                "3"
+              ],
+              "port": "8080",
+              "path": [
+                "transf-sched",
+                "conta",
+                "cadastrar"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Alterar",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxOTgyMTk4NzAyOCIsImlhdCI6MTc3NTAxNDE2NiwiZXhwIjoxNzc1MDE3NzY2fQ.Yb28hm9Yx6ddMkus6TRiAc5Uzw9sFRGpGWkMFkHbDCU",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"cliente\": \r\n    {\r\n        \"cpf\": \"19821987028\"\r\n    },\r\n    \"saldo\": 250.00\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://192.168.18.3:8080/transf-sched/conta/alterar/2",
+              "protocol": "http",
+              "host": [
+                "192",
+                "168",
+                "18",
+                "3"
+              ],
+              "port": "8080",
+              "path": [
+                "transf-sched",
+                "conta",
+                "alterar",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Excluir",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://192.168.18.3:8080/transf-sched/conta/excluir/1",
+              "protocol": "http",
+              "host": [
+                "192",
+                "168",
+                "18",
+                "3"
+              ],
+              "port": "8080",
+              "path": [
+                "transf-sched",
+                "conta",
+                "excluir",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Um Reg",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxOTgyMTk4NzAyOCIsImlhdCI6MTc3NTAxNDE2NiwiZXhwIjoxNzc1MDE3NzY2fQ.Yb28hm9Yx6ddMkus6TRiAc5Uzw9sFRGpGWkMFkHbDCU",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://192.168.18.3:8080/transf-sched/conta/2",
+              "protocol": "http",
+              "host": [
+                "192",
+                "168",
+                "18",
+                "3"
+              ],
+              "port": "8080",
+              "path": [
+                "transf-sched",
+                "conta",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Todos",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxOTgyMTk4NzAyOCIsImlhdCI6MTc3NTAxNDE2NiwiZXhwIjoxNzc1MDE3NzY2fQ.Yb28hm9Yx6ddMkus6TRiAc5Uzw9sFRGpGWkMFkHbDCU",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://192.168.18.3:8080/transf-sched/conta/todos",
+              "protocol": "http",
+              "host": [
+                "192",
+                "168",
+                "18",
+                "3"
+              ],
+              "port": "8080",
+              "path": [
+                "transf-sched",
+                "conta",
+                "todos"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Transf",
+      "item": [
+        {
+          "name": "Agendar",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxOTgyMTk4NzAyOCIsImlhdCI6MTc3NTAxNDE2NiwiZXhwIjoxNzc1MDE3NzY2fQ.Yb28hm9Yx6ddMkus6TRiAc5Uzw9sFRGpGWkMFkHbDCU",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"origem\": {\r\n        \"id\": 2\r\n    },\r\n    \"destino\": {\r\n        \"id\": 1\r\n    },\r\n    \"valorTransferencia\": 50.00,\r\n    \"taxa\": 3.00,\r\n    \"dataAgendamento\": 20260401,\r\n    \"dataTransferencia\": 20260409\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://192.168.18.3:8080/transf-sched/transf/agendar",
+              "protocol": "http",
+              "host": [
+                "192",
+                "168",
+                "18",
+                "3"
+              ],
+              "port": "8080",
+              "path": [
+                "transf-sched",
+                "transf",
+                "agendar"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Excluir 2",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI0NDQ3NzQ4ODg2NiIsImlhdCI6MTc3NTAxMjg0NiwiZXhwIjoxNzc1MDE2NDQ2fQ.GHQSIkf5kNENZJUFzyLsrCBd7TC1wa8px11pjXg2AEQ",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://192.168.18.3:8080/transf-sched/transf/excluir/1",
+              "protocol": "http",
+              "host": [
+                "192",
+                "168",
+                "18",
+                "3"
+              ],
+              "port": "8080",
+              "path": [
+                "transf-sched",
+                "transf",
+                "excluir",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Alterar",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxOTgyMTk4NzAyOCIsImlhdCI6MTc3NTAxNDE2NiwiZXhwIjoxNzc1MDE3NzY2fQ.Yb28hm9Yx6ddMkus6TRiAc5Uzw9sFRGpGWkMFkHbDCU",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"origem\": {\r\n        \"id\": 2\r\n    },\r\n    \"destino\": {\r\n        \"id\": 1\r\n    },\r\n    \"valorTransferencia\": 70.00,\r\n    \"taxa\": 5.00,\r\n    \"dataAgendamento\": 20260401,\r\n    \"dataTransferencia\": 20260409\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://192.168.18.3:8080/transf-sched/transf/alterar/1",
+              "protocol": "http",
+              "host": [
+                "192",
+                "168",
+                "18",
+                "3"
+              ],
+              "port": "8080",
+              "path": [
+                "transf-sched",
+                "transf",
+                "alterar",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Todos Orig",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxOTgyMTk4NzAyOCIsImlhdCI6MTc3NTAxNDE2NiwiZXhwIjoxNzc1MDE3NzY2fQ.Yb28hm9Yx6ddMkus6TRiAc5Uzw9sFRGpGWkMFkHbDCU",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://192.168.18.3:8080/transf-sched/transf/todos-origem/2",
+              "protocol": "http",
+              "host": [
+                "192",
+                "168",
+                "18",
+                "3"
+              ],
+              "port": "8080",
+              "path": [
+                "transf-sched",
+                "transf",
+                "todos-origem",
+                "2"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Todos Dest",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxOTgyMTk4NzAyOCIsImlhdCI6MTc3NTAxNDE2NiwiZXhwIjoxNzc1MDE3NzY2fQ.Yb28hm9Yx6ddMkus6TRiAc5Uzw9sFRGpGWkMFkHbDCU",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://192.168.18.3:8080/transf-sched/transf/todos-destino/1",
+              "protocol": "http",
+              "host": [
+                "192",
+                "168",
+                "18",
+                "3"
+              ],
+              "port": "8080",
+              "path": [
+                "transf-sched",
+                "transf",
+                "todos-destino",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Uma Transf",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxOTgyMTk4NzAyOCIsImlhdCI6MTc3NTAxNDE2NiwiZXhwIjoxNzc1MDE3NzY2fQ.Yb28hm9Yx6ddMkus6TRiAc5Uzw9sFRGpGWkMFkHbDCU",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://192.168.18.3:8080/transf-sched/transf/1",
+              "protocol": "http",
+              "host": [
+                "192",
+                "168",
+                "18",
+                "3"
+              ],
+              "port": "8080",
+              "path": [
+                "transf-sched",
+                "transf",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

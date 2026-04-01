@@ -21,31 +21,35 @@ public class TransferenciaRestController {
 	@Autowired
 	private TransferenciaService service;
 	
-	@GetMapping("/todos-origem/{id}")
-	public ResponseEntity<List<Transferencia>> capturarTodasTransferenciasPorOrigem(@PathVariable Integer idOrigem) {
+	@GetMapping("/todos-origem/{idOrigem}")
+	public ResponseEntity<List<Transferencia>> capturarTodasTransferenciasPorOrigem(@PathVariable("idOrigem") Integer idOrigem) {
 		return ResponseEntity.ok(service.transferenciasPorOrigem(idOrigem));
 	}
 	
-	@GetMapping("/todos-destino/{id}")
-	public ResponseEntity<List<Transferencia>> capturarTodasTransferenciasPorDestino(@PathVariable Integer idDestino) {
+	@GetMapping("/todos-destino/{idDestino}")
+	public ResponseEntity<List<Transferencia>> capturarTodasTransferenciasPorDestino(@PathVariable("idDestino") Integer idDestino) {
 		return ResponseEntity.ok(service.transferenciasPorDestino(idDestino));
 	}
 	
-	@PostMapping("/{id}/agendar")
+	@GetMapping("/{id}")
+	public ResponseEntity<Transferencia> pegarTransferenciaPorId(@PathVariable Integer id) {
+		return ResponseEntity.ok(service.pegarTransferenciaPorId(id));
+	}
+	
+	@PostMapping("/agendar")
 	public ResponseEntity<Transferencia> agendarTransferencia(@RequestBody Transferencia transferencia) {
 		return ResponseEntity.ok(service.agendarTransferencia(transferencia));
 	}
 	
-	/*
-	@PostMapping("/{id}/alterar")
-	public ResponseEntity<Transferencia> alterarTransferencia(@RequestBody Transferencia transferencia) {
-		return ResponseEntity.ok(service.agendarTransferencia(transferencia));
+	@PostMapping("/alterar/{id}")
+	public ResponseEntity<Transferencia> alterarTransferencia(@PathVariable Integer id, @RequestBody Transferencia transferencia) {
+		return ResponseEntity.ok(service.alterarTransferencia(id, transferencia));
 	}
 	
-	@PostMapping("/{id}/agendar")
-	public ResponseEntity<Transferencia> cancelarTransferencia(@RequestBody Transferencia transferencia) {
-		return ResponseEntity.ok(service.agendarTransferencia(transferencia));
+	@PostMapping("/excluir/{id}")
+	public ResponseEntity<String> cancelarTransferencia(@PathVariable Integer id) {
+		service.excluirTransferencia(id);
+		return ResponseEntity.ok().body("Transferência cancelada com sucesso: " + id);
 	}
-	*/
 
 }

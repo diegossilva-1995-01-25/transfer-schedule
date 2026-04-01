@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.diegossilva.app.entity.Cliente;
 import br.com.diegossilva.app.entity.Conta;
 import br.com.diegossilva.app.service.ContaService;
 
@@ -22,7 +23,7 @@ public class ContaRestController {
 	private ContaService service;
 	
 	@PostMapping("/cadastrar")
-	public ResponseEntity<String> cadastrarConta(Conta conta) {
+	public ResponseEntity<String> cadastrarConta(@RequestBody Conta conta) {
 		
 		conta = service.cadastrarConta(conta);
 		
@@ -53,6 +54,11 @@ public class ContaRestController {
     @GetMapping("/todos")
     public ResponseEntity<List<Conta>> resgateTodosBeneficiarios(){
         return ResponseEntity.ok(service.resgateTodosContas());
+    }
+    
+    @GetMapping("/todos/{id}")
+    public ResponseEntity<List<Conta>> resgateTodosBeneficiariosPorCliente(Cliente c){
+        return ResponseEntity.ok(service.resgateTodosContasPorCliente(c));
     }
 
 }

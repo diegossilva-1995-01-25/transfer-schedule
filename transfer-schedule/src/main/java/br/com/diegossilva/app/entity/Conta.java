@@ -22,7 +22,7 @@ public class Conta {
 	private int id;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "cliente_id", nullable = false)
+	@JoinColumn(name = "cliente_cpf", nullable = false)
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Cliente cliente;
 	
