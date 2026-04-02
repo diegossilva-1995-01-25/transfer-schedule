@@ -1,0 +1,42 @@
+.main {
+
+    padding: 0 1rem;
+
+    .content {
+
+        .topo {
+
+            background: transparent linear-gradient(89deg, #dfc762, #148163) 0 0 no-repeat padding-box;
+            height: 4rem;
+            color: white;
+            font-size: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .top-buttons {
+                background: transparent;
+                border: 0;
+                font-size: 2rem;
+                color: white;
+                cursor: pointer;
+            }
+
+            .top-buttons:active {
+                color: #023b2b;
+            }
+
+            .top-buttons.deactivate {
+                display: none;
+            }
+
+            .title-app {
+                font-family: Titillium, sans-serif;
+                font-weight: 700;
+            }
+
+        }
+
+    }
+
+}

@@ -1,0 +1,42 @@
+<div class="container">
+
+    <form class="form-new">
+
+        <div class="linha">
+            
+            <label for="nome" class="lbl">Nome</label>
+            <input id="nome" type="text" class="txt" />
+
+        </div>
+
+        <div class="linha">
+        
+            <label for="cpf" class="lbl">CPF</label>
+            <input id="cpf" type="number" class="txt" />
+
+        </div>
+
+        <div class="linha">
+
+            <label for="senha" class="lbl">Senha</label>
+            <input id="senha" type="password" class="txt" />
+
+        </div>
+
+        <div class="linha">
+
+            <label for="confSenha" class="lbl">Confirmar Senha</label>
+            <input id="confSenha" type="password" class="txt" />
+
+        </div>
+
+        <div class="linha-botoes">
+        
+            <button class="green"> <span class="mdi mdi-content-save"></span> </button>
+            <button class="red" (click)="redirectLogin()"> <span class="mdi mdi-close"></span> </button>
+
+        </div>
+
+    </form>
+
+</div>
