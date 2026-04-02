@@ -10,6 +10,7 @@ import br.com.diegossilva.app.entity.Conta;
 import br.com.diegossilva.app.entity.Transferencia;
 import br.com.diegossilva.app.repository.ContaRepository;
 import br.com.diegossilva.app.repository.TransferenciaRepository;
+import br.com.diegossilva.app.utils.CalculoTaxa;
 
 @Service
 @Lazy
@@ -21,7 +22,10 @@ public class TransferenciaService {
 	@Autowired
 	private ContaRepository contaRepo;
 	
-	public Transferencia agendarTransferencia(Transferencia t) {
+	@Autowired
+	private CalculoTaxa ct;
+	
+	public Transferencia agendarTransferencia(Transferencia t) throws Exception {
 		
 		Conta contaOrigem = contaRepo.getReferenceById(t.getOrigem().getId());
 		t.setOrigem(contaOrigem);
@@ -29,7 +33,14 @@ public class TransferenciaService {
 		Conta contaDestino = contaRepo.getReferenceById(t.getDestino().getId());
 		t.setDestino(contaDestino);
 		
-		return repo.save(t);
+		t.setTaxa(ct.calcularTaxa(String.valueOf(t.getDataAgendamento()), String.valueOf(t.getDataTransferencia())));
+		
+		if(t.getTaxa() != -1) {
+			return repo.save(t);
+		} else {
+			throw new Exception("Taxa inválida, mais de 50 dias não permitido");
+		}
+		
 	}
 	
 	public List<Transferencia> transferenciasPorOrigem(Integer idOrigem) {
@@ -44,7 +55,7 @@ public class TransferenciaService {
 		return repo.getReferenceById(id);
 	}
 	
-	public Transferencia alterarTransferencia(Integer id, Transferencia t) {
+	public Transferencia alterarTransferencia(Integer id, Transferencia t) throws Exception {
 		
 		t.setId(id);
 		
@@ -54,7 +65,13 @@ public class TransferenciaService {
 		Conta contaDestino = contaRepo.getReferenceById(t.getDestino().getId());
 		t.setDestino(contaDestino);
 		
-        return repo.save(t);
+		t.setTaxa(ct.calcularTaxa(String.valueOf(t.getDataAgendamento()), String.valueOf(t.getDataTransferencia())));
+		
+		if(t.getTaxa() != -1) {
+			return repo.save(t);
+		} else {
+			throw new Exception("Taxa inválida, mais de 50 dias não permitido");
+		}
 	}
 	
 	public void excluirTransferencia(Integer id) {

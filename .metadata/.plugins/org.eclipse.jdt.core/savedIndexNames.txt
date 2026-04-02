@@ -6,7 +6,6 @@ INDEX VERSION 1.134+C:\Users\diego\transfer-schedule\.metadata\.plugins\org.ecli
 3600526398.index
 1268524868.index
 1927135688.index
-1140833344.index
 1438916431.index
 911966680.index
 2616213795.index

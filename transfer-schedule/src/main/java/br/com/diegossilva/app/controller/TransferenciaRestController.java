@@ -37,12 +37,12 @@ public class TransferenciaRestController {
 	}
 	
 	@PostMapping("/agendar")
-	public ResponseEntity<Transferencia> agendarTransferencia(@RequestBody Transferencia transferencia) {
+	public ResponseEntity<Transferencia> agendarTransferencia(@RequestBody Transferencia transferencia) throws Exception {
 		return ResponseEntity.ok(service.agendarTransferencia(transferencia));
 	}
 	
 	@PostMapping("/alterar/{id}")
-	public ResponseEntity<Transferencia> alterarTransferencia(@PathVariable Integer id, @RequestBody Transferencia transferencia) {
+	public ResponseEntity<Transferencia> alterarTransferencia(@PathVariable Integer id, @RequestBody Transferencia transferencia) throws Exception {
 		return ResponseEntity.ok(service.alterarTransferencia(id, transferencia));
 	}
 	
