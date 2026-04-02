@@ -1,1 +1,19 @@
-<p>cadastrar-conta works!</p>
+<div class="container">
+  <form class="form-conta" [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <div class="linha">
+      <label for="saldo" class="lbl">Saldo</label>
+      <input id="saldo" type="text" class="txt" formControlName="saldo" />
+    </div>
+
+    <div class="linha-botoes">
+      <button class="green" type="submit" [disabled]="form.invalid">
+        <span class="mdi mdi-content-save"></span>
+      </button>
+      <button class="red" type="button" (click)="redirectContas()">
+        <span class="mdi mdi-close"></span>
+      </button>
+    </div>
+
+  </form>
+</div>

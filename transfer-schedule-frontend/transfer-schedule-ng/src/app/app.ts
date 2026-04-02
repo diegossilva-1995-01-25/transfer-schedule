@@ -19,6 +19,8 @@ export class App {
   redirectLogin(): void {
     this.router.navigate(['/login']);
     this.telaService.setTela('login');
+    localStorage.removeItem('idConta');
+    localStorage.removeItem('authToken');
   }
 
   redirectRegistrar(): void {

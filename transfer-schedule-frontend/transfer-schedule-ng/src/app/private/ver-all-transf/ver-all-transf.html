@@ -1,1 +1,37 @@
-<p>ver-all-transf works!</p>
+<div class="container">
+  <form class="form-all-transf">
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Saldo</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @for (transf of transfs; track transf.id) {
+
+                <tr>
+                    <td>{{ transf.id }}</td>
+                    <td>{{ transf.saldo }}</td>
+                </tr>
+
+            } @empty {
+                <tr><td colspan="2">Não há transferências encontradas.</td></tr>
+            }
+            
+        </tbody>
+    </table>
+
+    <div class="linha-botoes">
+      <button class="red" type="button" (click)="redirectMenu()">
+        <span class="mdi mdi-close"></span>
+      </button>
+      <button class="blue" type="button" (click)="redirectTransfPlus()">
+        <span class="mdi mdi-plus"></span>
+      </button>
+    </div>
+
+  </form>
+</div>

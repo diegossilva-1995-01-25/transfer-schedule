@@ -1,1 +1,37 @@
-<p>contas works!</p>
+<div class="container">
+  <form class="form-contas">
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Saldo</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @for (conta of contas; track conta.id) {
+
+                <tr>
+                    <td>{{ conta.id }}</td>
+                    <td>{{ conta.saldo }}</td>
+                </tr>
+
+            } @empty {
+                <tr><td colspan="2">Não há contas encontradas.</td></tr>
+            }
+            
+        </tbody>
+    </table>
+
+    <div class="linha-botoes">
+      <button class="red" type="button" (click)="redirectMenu()">
+        <span class="mdi mdi-close"></span>
+      </button>
+      <button class="blue" type="button" (click)="redirectContaPlus()">
+        <span class="mdi mdi-plus"></span>
+      </button>
+    </div>
+
+  </form>
+</div>

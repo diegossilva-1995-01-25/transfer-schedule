@@ -1,1 +1,39 @@
-<p>transf works!</p>
+<div class="container">
+  <form class="form-transf" [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <div class="linha">
+      <label for="origem" class="lbl">Conta Origem</label>
+      <input [disabled]="true" id="origem" type="text" class="txt" formControlName="origem" />
+    </div>
+
+    <div class="linha">
+      <label for="destino" class="lbl">Conta Destino</label>
+      <input id="destino" type="text" class="txt" formControlName="destino" />
+    </div>
+
+    <div class="linha">
+      <label for="valor" class="lbl">Valor</label>
+      <input id="valor" type="text" class="txt" formControlName="valor" />
+    </div>
+
+    <div class="linha">
+      <label for="dataAgendamento" class="lbl">Hoje</label>
+      <input [disabled]="true" id="dataAgendamento" type="text" class="txt" formControlName="dataAgendamento" />
+    </div>
+
+    <div class="linha">
+      <label for="dataTransferencia" class="lbl">Data Transferência</label>
+      <input id="dataTransferencia" type="text" class="txt" formControlName="dataTransferencia" />
+    </div>
+
+    <div class="linha-botoes">
+      <button class="green" type="submit" [disabled]="form.invalid">
+        <span class="mdi mdi-content-save"></span>
+      </button>
+      <button class="red" type="button" (click)="redirectTransferencias()">
+        <span class="mdi mdi-close"></span>
+      </button>
+    </div>
+
+  </form>
+</div>
